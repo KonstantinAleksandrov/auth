@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { AppRouter } from "./containers"
+import { useEffect } from 'react'
+import { dataService } from "./services"
+import { useAction } from "./hooks"
+import { IUser } from "./models"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { setUser, setIsAuth } = useAction()
+
+    useEffect(() => {
+        const isAuth = dataService.getFromLocalStorage('auth')
+        if (isAuth) {
+            const username = dataService.getFromLocalStorage('username')
+            setUser({ username: username || '' } as IUser)
+            setIsAuth(true)
+        }
+    }, [])
+
+    return (
+        <div className="App">
+            <AppRouter />
+        </div>
+    )
 }
 
-export default App;
+export default App

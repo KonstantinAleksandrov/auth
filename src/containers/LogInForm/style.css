@@ -1,0 +1,41 @@
+.logInForm {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    background-color: white;
+    padding: 50px 30px 30px 30px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.logInForm__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.logInForm__buttons-loginBtn {
+    padding: 12px 20px;
+    border-radius: 12px;
+    background-color: #108ee9;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease 0s;
+}
+
+.logInForm__buttons-loginBtn:hover {
+    background-color: #106db0;
+}
+
+.logInForm__error {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    top: 15px;
+    left: 0;
+}

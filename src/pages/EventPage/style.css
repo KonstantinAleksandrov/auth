@@ -1,0 +1,6 @@
+.eventPage__container {
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    background-color: #efefef;
+}
